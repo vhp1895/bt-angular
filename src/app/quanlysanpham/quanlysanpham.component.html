@@ -1,0 +1,47 @@
+<div class="form">
+  <p class="form-header text-white bg-dark py-2 pl-3">Quản lý danh mục sản phẩm</p>
+
+  <form class="was-validated">
+    <div class="form-group">
+      <label for="MaSP">Mã SP:</label>
+      <input type="text" class="form-control" id="MaSP" required #masp>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="TenSP">Tên SP:</label>
+      <input type="text" class="form-control" id="TenSP" required #tensp>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="GiaSP">Giá SP:</label>
+      <input type="text" class="form-control" id="GiaSP" required #giasp>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <button type="button" class="btn btn-success" (click)="themSP(masp.value, tensp.value, giasp.value)">Thêm sản
+      phẩm</button>
+  </form>
+</div>
+
+<div class="table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Mã SP</th>
+        <th>Tên SP</th>
+        <th>Giá</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of DSSP, let stt = index" [ngClass]="{background: index % 2 === 0}">
+        <td>{{stt + 1}}</td>
+        <td>{{item.masp}}</td>
+        <td>{{item.tensp}}</td>
+        <td>{{item.giasp}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
