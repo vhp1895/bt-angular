@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <ng-container *ngFor="let item of mangGhe,let stt = index">
+        <app-ghe-bus [Ghe]="item" (eventBook)="datGhe($event)"></app-ghe-bus>
+        <br *ngIf="(stt + 1) % 4 === 0">
+      </ng-container>
+    </div>
+    <div class="col-sm-6">
+      <h2>Danh Sach Ghe Da Dat</h2>
+      <p *ngFor="let item of danhSachGheDaDat">Ghe: {{item.TenGhe}} - {{item.Gia}} $
+        <button (click)="huyGhe(item.SoGhe)"><span style="color: red" >[Huy]</span></button>
+      </p>
+    </div>
+  </div>
+</div>

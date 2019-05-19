@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuanlysanphamModule } from './quanlysanpham/quanlysanpham.module';
+import { DatVeBusModule } from './dat-ve-bus/dat-ve-bus.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { QuanlysanphamModule } from './quanlysanpham/quanlysanpham.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    QuanlysanphamModule
+    QuanlysanphamModule,
+    DatVeBusModule
   ],
   providers: [],
   bootstrap: [AppComponent]
