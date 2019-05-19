@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChildren,QueryList } from '@angular/core';
+import { GheBusComponent } from '../ghe-bus/ghe-bus.component';
 @Component({
   selector: 'app-danh-sach-ghe-bus',
   templateUrl: './danh-sach-ghe-bus.component.html',
   styleUrls: ['./danh-sach-ghe-bus.component.scss']
 })
 export class DanhSachGheBusComponent implements OnInit {
+  @ViewChildren(GheBusComponent) listGheBus: QueryList<GheBusComponent>;
   mangGhe = [
     { SoGhe: 1, TenGhe: "số 1", Gia: 100, TrangThai: false },
     { SoGhe: 2, TenGhe: "số 2", Gia: 100, TrangThai: false },
@@ -47,10 +48,11 @@ export class DanhSachGheBusComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   datGhe(ghe) {
-
+    
     if(ghe.trangThai === true ) {
       this.danhSachGheDaDat.push(ghe.ghe);
     }
@@ -59,7 +61,9 @@ export class DanhSachGheBusComponent implements OnInit {
     }
   }
 
-  huyGhe(soGhe) {
-    this.danhSachGheDaDat.splice(this.danhSachGheDaDat.findIndex(item => item.soGhe === soGhe), 1);
+  huyGhe(ghe) {
+    this.danhSachGheDaDat.splice(this.danhSachGheDaDat.findIndex(item => item.soGhe === ghe.soGhe), 1);
+    let gheCanHuy = this.listGheBus.find(item => item.Ghe.SoGhe === ghe.SoGhe);
+    gheCanHuy.trangThaiChon = false;
   }
 }

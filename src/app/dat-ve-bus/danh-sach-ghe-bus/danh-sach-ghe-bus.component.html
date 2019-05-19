@@ -9,7 +9,7 @@
     <div class="col-sm-6">
       <h2>Danh Sach Ghe Da Dat</h2>
       <p *ngFor="let item of danhSachGheDaDat">Ghe: {{item.TenGhe}} - {{item.Gia}} $
-        <button (click)="huyGhe(item.SoGhe)"><span style="color: red" >[Huy]</span></button>
+        <button (click)="huyGhe(item)"><span style="color: red" >[Huy]</span></button>
       </p>
     </div>
   </div>
